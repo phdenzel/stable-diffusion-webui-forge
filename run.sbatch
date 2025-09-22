@@ -14,7 +14,7 @@
 # #SBATCH --signal=B:SIGUSR1@900
 
 # Defaults
-PY_MODULE=python/3.12.4
+PY_MODULE=python/3.10.14
 UV_MODULE=uv/0.6.12
 ENV_NAME="sd-forge"  # define python virtualenv name
 SCRATCsH_VENVS="/scratch/venvs"
@@ -32,6 +32,6 @@ ln -sf $SCRATCH_VENVS/$ENV_NAME $PKG_DIR/venv
 
 echo "[`date '+%Y-%m-%d %T.%3N'`][SLURM] - `hostname`"
 
-uv run $PKG_DIR/webui.sh --server-name 0.0.0.0 --share --port $PORT
+uv run bash $PKG_DIR/webui.sh --server-name 0.0.0.0 --share --port $PORT
 
 echo "[`date '+%Y-%m-%d %T.%3N'`][SLURM] - Shutdown"
