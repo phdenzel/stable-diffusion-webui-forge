@@ -50,7 +50,7 @@ dependencies = [
   "tomesd",
   "transformers==4.46.1",
   "pillow-avif-plugin==1.4.3",
-  "diffusers",
+  "diffusers==0.31.0",
   "gradio_rangeslider==0.0.6",
   "gradio_imageslider==0.0.20",
   "loadimg",
