@@ -26,6 +26,10 @@ module load "$CU_MODULE"
 module load "$PY_MODULE"
 VENV="$ENV_NAME" module load "$UV_MODULE"
 cd $PKG_DIR
+mkdir -p $PKG_DIR/repositories
+[ ! -d "$PKG_DIR/repositories/BLIP" ] && git clone https://github.com/salesforce/BLIP.git $PKG_DIR/repositories/BLIP && cd $PKG_DIR/repositories/BLIP && git checkout 48211a1594f1321b00f14c9f7a5b4813144b2fb9
+[ ! -d "$PKG_DIR/repositories/huggingface_guess" ] && git clone https://github.com/lllyasviel/huggingface_guess.git $PKG_DIR/repositories/huggingface_guess && cd $PKG_DIR/repositories/huggingface_guesss && git checkout 84826248b49bb7ca754c73293299c4d4e23a548d
+[ ! -d "$PKG_DIR/repositories/stable-diffusion-webui-assets" ] && git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-assets.git $PKG_DIR/repositories/stable-diffusion-webui-assets && cd $PKG_DIR/repositories/stable-diffusion-webui-assets && git checkout 6f7db241d2f8ba7457bac5ca9753331f0c266917
 uv sync
 
 # Run webui
