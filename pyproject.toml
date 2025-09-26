@@ -65,6 +65,7 @@ dependencies = [
   "joblib>=1.5.2",
   "insightface>=0.7.3",
   "bitsandbytes==0.45.3",
+  "ngrok>=1.4.0",
 ]
 
 #[[tool.uv.index]]
