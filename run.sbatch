@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=128G
 #SBATCH --account=cai_teaching
-#SBATCH --partition=admin
+#SBATCH --partition=teaching
 #SBATCH --output=/cluster/projects/2025_image_tools/logs/%x.id%j.%N.sbatch.out
 #SBATCH --error=/cluster/projects/2025_image_tools/logs/%x.id%j.%N.sbatch.err
 # #SBATCH --signal=B:SIGUSR1@900
@@ -34,7 +34,7 @@ PKG_DIR="/cluster/projects/2025_image_tools/stable-diffusion-webui-forge"
 PORT="8595"
 
 # Parse args
-OPTS=$(getopt -o he:d:o:i:n:c --long help,experiment:,env:,data-cache:,batch-size:,data-dir:,data-trunk:,out:,run-id:,run-name:,checkpoint: -- "$@")
+OPTS=$(getopt -o p:h --long help,port: -- "$@")
 if [ $? != 0 ] ; then
     echo "[`date '+%Y-%m-%d %T.%3N'`][SLURM] - Failed to parse arguments." >&2
     exit 1
